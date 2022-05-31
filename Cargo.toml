@@ -1,0 +1,41 @@
+[package]
+name = "pusher-server"
+version = "0.1.0"
+authors = ["Sadık Ergüven <unspoken598@gmail.com>"]
+description = "A short description of my package"
+#documentation = "https://docs.rs/bitflags"
+#readme = "README.md"
+#homepage = "https://serde.rs/"
+#repository = "https://github.com/rust-lang/cargo/"
+license = "MIT"
+#license-file = "LICENSE.txt"
+keywords = ["pusher", "websocket", "api", "http", "tcp", "server"]
+categories = ["web-programming", "web-programming::http-server", "web-programming::websocket", "network-programming", "accessibility"]
+#build = "build.rs"
+edition = "2021"
+exclude = ["/ci/*", "/.github/*", "/.cirrus.yml", "/triagebot.toml", "/.idea/*", "/.git/*"]
+
+[badges]
+maintenance = { status = "actively-developed" }
+
+[workspace]
+resolver = "2"
+members = ["db"]
+
+[dependencies]
+libc = { version = "^0.2", features = ["extra_traits"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = { version = "1", features = ["preserve_order"] }
+tokio = { version = "1", features = ["full"] }
+warp = "^0.3"
+futures = "^0.3"
+sha2 = "^0.10"
+hmac = "^0.12"
+md-5 = "0.10.1"
+hex = "^0.4"
+rand = "^0.8"
+hashbrown = { version = "^0.12", features = ["serde", "ahash-compile-time-rng", "rayon"] }
+regex = "^1.5"
+chrono = { version = "^0.4", features = ["serde"] }
+log = "^0.4"
+env_logger = "^0.9"

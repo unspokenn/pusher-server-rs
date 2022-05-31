@@ -1,0 +1,9 @@
+[package]
+name = "db"
+version = "0.1.0"
+edition = "2021"
+exclude = ["/ci/*", "/.github/*", "/.cirrus.yml", "/triagebot.toml", "/.idea/*", "/.git/*", "/pusher-server2/*"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
