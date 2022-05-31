@@ -49,6 +49,7 @@ impl EventRequestBody {
 #[repr(C)]
 #[derive(Debug, Deserialize)]
 #[serde(from = "ClientEventJSON")]
+#[allow(dead_code)]
 pub(crate) enum ClientEvent {
     Subscribe {
         channel: String,
@@ -171,6 +172,7 @@ pub(crate) struct CustomEvent {
 #[repr(C)]
 #[derive(Clone, Debug, Serialize)]
 #[serde(tag = "event")]
+#[allow(dead_code)]
 pub(crate) enum ServerEvent {
     #[serde(rename = "pusher:connection_established")]
     ConnectionEstablished {

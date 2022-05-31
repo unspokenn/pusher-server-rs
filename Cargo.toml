@@ -38,3 +38,20 @@ regex = "^1.5"
 chrono = { version = "^0.4", features = ["serde"] }
 log = "^0.4"
 env_logger = "^0.9"
+
+[profile.dev]
+opt-level = 0
+lto = false
+codegen-units = 256
+incremental = true
+debug-assertions = false
+overflow-checks = true
+debug = 1
+rpath = false
+
+# Set the default for dependencies.
+[profile.dev.package."*"]
+opt-level = 2
+
+[profile.dev.build-override]
+opt-level = 3

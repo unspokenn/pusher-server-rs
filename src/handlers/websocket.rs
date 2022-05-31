@@ -1,7 +1,7 @@
 use futures::{SinkExt, StreamExt};
 use tokio::sync::mpsc;
 use warp::filters::ws::Ws;
-use crate::app::{PusherQuery, Pusher, generate_socket_id, ServerEvent, ConnectionInfo, Subscription, CustomEvent, Result};
+use crate::app::{Pusher, generate_socket_id, ServerEvent, ConnectionInfo, Subscription, CustomEvent, Result};
 use crate::app::ClientEvent::{ChannelEvent, Subscribe, Unsubscribe, Ping};
 
 pub(crate) async fn ws(pusher: Pusher, ws: Ws) -> Result<impl warp::Reply> {

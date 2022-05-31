@@ -38,30 +38,31 @@ impl Pusher {
             channels: Arc::new(RwLock::new(HashMap::default())),
         }
     }
+    #[allow(dead_code)]
     pub fn set_name(&mut self, name: &str) {
         self.name = Some(name.to_owned());
     }
-
+    #[allow(dead_code)]
     pub fn set_host(&mut self, host: &str) {
         self.host = Some(host.to_owned());
     }
-
+    #[allow(dead_code)]
     pub fn set_path(&mut self, path: &str) {
         self.path = Some(path.to_owned());
     }
-
+    #[allow(dead_code)]
     pub fn set_capacity(&mut self, capacity: u32) {
         self.capacity = Some(capacity);
     }
-
+    #[allow(dead_code)]
     pub fn set_client_messages_enabled(&mut self, client_messages_enabled: bool) {
         self.client_messages_enabled = Some(client_messages_enabled);
     }
-
+    #[allow(dead_code)]
     pub fn set_statistics_enabled(&mut self, statistics_enabled: bool) {
         self.statistics_enabled = Some(statistics_enabled);
     }
-
+    #[allow(dead_code)]
     pub fn set_allowed_origins(&mut self, allowed_origins: Vec<String>) {
         self.allowed_origins = Some(allowed_origins);
     }
@@ -116,10 +117,11 @@ impl PusherServer {
             apps: map
         }
     }
+    #[allow(dead_code)]
     pub fn add(&mut self, app: Pusher) {
         self.apps.insert(app.key.to_owned(), app);
     }
-
+    #[allow(dead_code)]
     pub(crate) fn remove(&mut self, key: &str) {
         self.apps.remove(key);
     }
@@ -139,6 +141,7 @@ impl PusherServer {
         }
         Err(warp::reject::custom(CustomError::NotFound))
     }
+    #[allow(dead_code)]
     #[inline(always)]
     pub(crate) async fn find_by_id_with_channels(&self, id: u32, channel_name: String) -> Result<(Pusher, Channel), warp::Rejection> {
         for (_, pusher) in self.apps.iter() {
@@ -157,6 +160,7 @@ pub(crate) struct ConnectionInfo {
     pub activity_timeout: u8,
 }
 
+#[allow(dead_code)]
 #[derive(Debug, Clone, Deserialize)]
 pub(crate) struct PusherQuery {
     pub auth_key: String,
@@ -182,6 +186,7 @@ impl PusherQuery {
     }
 }
 
+#[allow(dead_code)]
 #[derive(Debug, Clone, Deserialize)]
 pub(crate) struct InfoQueryPram {
     pub user_count: bool,

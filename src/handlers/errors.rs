@@ -1,5 +1,5 @@
 use crate::app::{CustomError, Serialize};
-use warp::{reply, Reply, Filter, reject, Rejection, http::StatusCode};
+use warp::{Reply, Rejection, http::StatusCode};
 
 #[derive(Serialize)]
 struct ErrorMessage {

@@ -1,8 +1,8 @@
 use warp::{Filter, Rejection};
 use warp::filters::BoxedFilter;
-use warp::hyper::{Method, StatusCode};
+use warp::hyper::Method;
 use warp::path::FullPath;
-use crate::app::{PusherQuery, PusherServer, Pusher, CustomError, Channel, EventRequestBody};
+use crate::app::{PusherQuery, PusherServer, Pusher, EventRequestBody};
 
 use crate::handlers;
 

@@ -5,6 +5,7 @@ use crate::app::CustomError;
 
 type HmacSha256 = Hmac<Sha256>;
 
+#[allow(dead_code)]
 #[inline(always)]
 pub(crate) fn create_body_md5(body: &str) -> String {
     use md5::{Md5, Digest};
@@ -14,6 +15,7 @@ pub(crate) fn create_body_md5(body: &str) -> String {
     sh.finalize().encode_hex()
 }
 
+#[allow(dead_code)]
 #[inline(always)]
 pub(crate) fn create_channel_auth<'a>(auth_map: &mut hashbrown::HashMap<&'a str, String>, key: &str, secret: &str, to_sign: &str) {
     let auth_signature = create_auth_signature(to_sign, secret);
@@ -33,6 +35,7 @@ pub(crate) fn check_signature(signature: &str, secret: &str, body: &str) -> Resu
     } else { Err(warp::reject::custom(CustomError::AuthSignatureError)) }
 }
 
+#[allow(dead_code)]
 #[inline(always)]
 pub(crate) fn create_auth_signature(to_sign: &str, secret: &str) -> String {
     let mut mac = HmacSha256::new_from_slice(secret.as_bytes()).expect("HMAC can take key of any size");
@@ -52,6 +55,7 @@ pub(crate) fn generate_socket_id() -> String {
     format!("{}.{}", p1, p2)
 }
 
+#[allow(dead_code)]
 #[inline(always)]
 pub(crate) fn validate_channels(channels: &Vec<String>) -> Result<bool, String> {
     if channels.len() > 10 {
