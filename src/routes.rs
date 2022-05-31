@@ -44,7 +44,6 @@ pub(crate) fn channel_filter(server: &PusherServer) -> BoxedFilter<(Pusher, Push
 
 #[inline(always)]
 pub(crate) fn health_filter() -> impl Filter<Extract = impl warp::Reply, Error = Rejection> + Clone {
-    eprintln!("{:#?}", "14");
     warp::path!("health").and(warp::get()).and_then(handlers::health)
 }
 

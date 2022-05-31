@@ -14,15 +14,12 @@ pub(crate) async fn handle_rejection(err: Rejection) -> Result<impl Reply, Rejec
     if err.is_not_found() {
         message = "Not Found".to_string();
         code = StatusCode::NOT_FOUND;
-        eprintln!("1");
     } else if let Some(_) = err.find::<warp::filters::body::BodyDeserializeError>() {
         message = "Invalid Body".to_string();
         code = StatusCode::BAD_REQUEST;
-        eprintln!("2");
     } else if let Some(_) = err.find::<warp::reject::MethodNotAllowed>() {
         message = "Method Not Allowed".to_string();
         code = StatusCode::METHOD_NOT_ALLOWED;
-        eprintln!("3");
     } else if let Some(e) = err.find::<CustomError>() {
         message = e.to_string();
         code = match &e {
@@ -38,12 +35,10 @@ pub(crate) async fn handle_rejection(err: Rejection) -> Result<impl Reply, Rejec
             CustomError::AuthKeyMismatch => StatusCode::UNAUTHORIZED,
             CustomError::AuthSignatureError => StatusCode::UNAUTHORIZED,
         };
-        eprintln!("4");
     } else {
         eprintln!("unhandled error: {:?}", err);
         message = "Internal Server Error".to_string();
         code = StatusCode::INTERNAL_SERVER_ERROR;
-        eprintln!("5");
     }
 
     let json = warp::reply::json(&ErrorMessage {
