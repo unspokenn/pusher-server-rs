@@ -1,3 +1,5 @@
+#![crate_type = "lib"]
+
 mod app;
 mod routes;
 mod handlers;

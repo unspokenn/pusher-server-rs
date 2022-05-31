@@ -1,19 +1,18 @@
 [package]
-name = "pusher-server"
+name = "pusher_server"
 version = "0.1.0"
-authors = ["Sadık Ergüven <unspoken598@gmail.com>"]
+authors = ["Sadık Ergüven <sadikerguven@gmail.com>"]
 description = "A short description of my package"
-#documentation = "https://docs.rs/bitflags"
-#readme = "README.md"
-#homepage = "https://serde.rs/"
-#repository = "https://github.com/rust-lang/cargo/"
-license = "MIT"
-#license-file = "LICENSE.txt"
+repository = "https://github.com/unspokenn/pusher-server-rs"
+documentation = "https://docs.rs/pusher-server-rs"
+homepage = "https://github.com/unspokenn/pusher-server-rs"
+license = "MIT OR Apache-2.0"
+readme = "README.md"
 keywords = ["pusher", "websocket", "api", "http", "tcp", "server"]
-categories = ["web-programming", "web-programming::http-server", "web-programming::websocket", "network-programming", "accessibility"]
-#build = "build.rs"
-edition = "2021"
+categories = ["web-programming", "web-programming::http-server", "web-programming::websocket", "network-programming", "api-bindings"]
 exclude = ["/ci/*", "/.github/*", "/.cirrus.yml", "/triagebot.toml", "/.idea/*", "/.git/*"]
+include = ["src/", "db/src/", "LICENSE-*", "README.md", "COPYRIGHT"]
+edition = "2021"
 
 [badges]
 maintenance = { status = "actively-developed" }
