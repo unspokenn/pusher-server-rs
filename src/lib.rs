@@ -9,7 +9,7 @@ use crate::app::{Pusher, PusherServer};
 
 const APPLICATION_NAME: &'static str = env!("CARGO_PKG_NAME");
 
-pub async fn start(app_id: &str, app_key: &str, app_secret: &str, bind_address: &str) -> Result<(), Box<dyn std::error::Error>> {
+pub async fn start(app_id: &str, app_key: &str, app_secret: &str, bind_address: &str) -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
     env_logger::init();
 
     let server: PusherServer = PusherServer::new(Pusher::new(app_id.parse::<u32>()?, app_key, app_secret));
